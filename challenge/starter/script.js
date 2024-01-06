@@ -88,10 +88,17 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
+// Wait for the DOM to be fully loaded before executing the code inside this block
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to prompt user for password options
+  function getPasswordOptions() {
+    var length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
 
-}
+    // Validate the length input
+    while (isNaN(length) || length < 8 || length > 128) {
+      alert("Please enter a valid password length between 8 and 128 characters.");
+      length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
+    }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -116,3 +123,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+  
