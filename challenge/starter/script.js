@@ -99,6 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please enter a valid password length between 8 and 128 characters.");
       length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
     }
+    //prompts for the password criteria
+    var includeLowercase = confirm("Include lowercase letters?");
+    var includeUppercase = confirm("Include uppercase letters?");
+    var includeNumbers = confirm("Include numbers?");
+    var includeSpecialChars = confirm("Include special characters ($@%&*, etc)?");
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -123,4 +128,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-  
+});
