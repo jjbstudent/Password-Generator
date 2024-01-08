@@ -147,13 +147,7 @@ function generatePassword(options) {
 
   for (let i = 0; i < options.length; i++) {
     password += getRandom(characters);
-  }
 
-  return password;
-}
-for (let i = 0; i < options.length; i++) {
-  password += getRandom(characters);
-}
 
 return password;
 }
