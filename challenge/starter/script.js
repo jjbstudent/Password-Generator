@@ -135,9 +135,21 @@ document.addEventListener("DOMContentLoaded", function () {
   return arr[randomIndex];
 }
 
-// Function to generate password with user input
-function generatePassword() {
+function generatePassword(options) {
+  let characters = '';
 
+  if (options.includeLowercase) characters += lowerCasedCharacters.join('');
+  if (options.includeUppercase) characters += upperCasedCharacters.join('');
+  if (options.includeNumbers) characters += numericCharacters.join('');
+  if (options.includeSpecialChars) characters += specialCharacters.join('');
+
+  let password = '';
+
+  for (let i = 0; i < options.length; i++) {
+    password += getRandom(characters);
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
