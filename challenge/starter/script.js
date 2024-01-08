@@ -104,9 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var includeUppercase = confirm("Include uppercase letters?");
     var includeNumbers = confirm("Include numbers?");
     var includeSpecialChars = confirm("Include special characters ($@%&*, etc)?");
-    
-    
-    
+
     // Validate that at least one character type is selected
     while (!(includeLowercase || includeUppercase || includeNumbers || includeSpecialChars)) {
       alert("Please select at least one character type.");
@@ -123,48 +121,47 @@ document.addEventListener("DOMContentLoaded", function () {
       includeNumbers: includeNumbers,
       includeSpecialChars: includeSpecialChars,
     };
-  };
-
-
- // Function to get a random element from an array
- function getRandom(arr) {
-  if (arr.length === 0) {
-    return undefined;
   }
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
-}
 
-function generatePassword(options) {
-  let characters = '';
+  // Function to get a random element from an array
+  function getRandom(arr) {
+    if (arr.length === 0) {
+      return undefined;
+    }
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  }
 
-  if (options.includeLowercase) characters += lowerCasedCharacters.join('');
-  if (options.includeUppercase) characters += upperCasedCharacters.join('');
-  if (options.includeNumbers) characters += numericCharacters.join('');
-  if (options.includeSpecialChars) characters += specialCharacters.join('');
+  function generatePassword(options) {
+    let characters = '';
 
-  let password = '';
+    if (options.includeLowercase) characters += lowerCasedCharacters.join('');
+    if (options.includeUppercase) characters += upperCasedCharacters.join('');
+    if (options.includeNumbers) characters += numericCharacters.join('');
+    if (options.includeSpecialChars) characters += specialCharacters.join('');
 
-  for (let i = 0; i < options.length; i++) {
-    password += getRandom(characters);
+    let password = '';
 
+    for (let i = 0; i < options.length; i++) {
+      password += getRandom(characters);
+    }
 
-return password;
-}
+    return password;
+  }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+  // Event listener for the "Generate Password" button
+  var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  // Write password to the #password input
+  function writePassword() {
+    var options = getPasswordOptions();
+    if (options) {
+      var password = generatePassword(options);
+      var passwordText = document.querySelector('#password');
+      passwordText.value = password;
+    }
+  }
 
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+  // Add event listener to generate button
+  generateBtn.addEventListener('click', writePassword);
 });
-
-// Function to generate a password based on user options
