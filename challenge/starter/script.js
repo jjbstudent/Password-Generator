@@ -99,15 +99,40 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please enter a valid password length between 8 and 128 characters.");
       length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
     }
-    //prompts for the password criteria
+    //prompts for the password criteria and sets a variable called for each criteria
     var includeLowercase = confirm("Include lowercase letters?");
     var includeUppercase = confirm("Include uppercase letters?");
     var includeNumbers = confirm("Include numbers?");
     var includeSpecialChars = confirm("Include special characters ($@%&*, etc)?");
+    
+    
+    
+    // Validate that at least one character type is selected
+    while (!(includeLowercase || includeUppercase || includeNumbers || includeSpecialChars)) {
+      alert("Please select at least one character type.");
+      includeLowercase = confirm("Include lowercase letters?");
+      includeUppercase = confirm("Include uppercase letters?");
+      includeNumbers = confirm("Include numbers?");
+      includeSpecialChars = confirm("Include special characters ($@%&*, etc)?");
+    }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
+    return {
+      length: length,
+      includeLowercase: includeLowercase,
+      includeUppercase: includeUppercase,
+      includeNumbers: includeNumbers,
+      includeSpecialChars: includeSpecialChars,
+    };
+  };
 
+
+ // Function to get a random element from an array
+ function getRandom(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  }
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
@@ -129,3 +154,5 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 });
+
+// Function to generate a password based on user options
