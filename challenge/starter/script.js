@@ -123,45 +123,63 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // Function to get a random element from an array
-  function getRandom(arr) {
-    if (arr.length === 0) {
-      return undefined;
-    }
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
+// Function to get a random element from an array
+function getRandom(arr) {
+  // Check if the array is empty
+  if (arr.length === 0) {
+    return undefined;
+  }
+  // Generate a random index within the array's length
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  // Return the element at the random index
+  return arr[randomIndex];
+}
+
+function generatePassword(options) {
+  // Initialize an empty string to store characters
+  let characters = '';
+
+  // Concatenate character sets based on user options
+  if (options.includeLowercase) characters += lowerCasedCharacters.join('');
+  if (options.includeUppercase) characters += upperCasedCharacters.join('');
+  if (options.includeNumbers) characters += numericCharacters.join('');
+  if (options.includeSpecialChars) characters += specialCharacters.join('');
+
+  // Initialize an empty string for the password
+  let password = '';
+
+  // Generate the password by randomly selecting characters from the combined set
+  for (let i = 0; i < options.length; i++) {
+    password += getRandom(characters);
   }
 
-  function generatePassword(options) {
-    let characters = '';
+  // Return the generated password
+  return password;
+}
 
-    if (options.includeLowercase) characters += lowerCasedCharacters.join('');
-    if (options.includeUppercase) characters += upperCasedCharacters.join('');
-    if (options.includeNumbers) characters += numericCharacters.join('');
-    if (options.includeSpecialChars) characters += specialCharacters.join('');
+// Event listener for the "Generate Password" button
+var generateBtn = document.querySelector('#generate');
 
-    let password = '';
-
-    for (let i = 0; i < options.length; i++) {
-      password += getRandom(characters);
-    }
-
-    return password;
+// Write password to the #password input
+function writePassword() {
+  // Get user options for password generation
+  var options = getPasswordOptions();
+  // Check if options are provided
+  if (options) {
+    // Generate a password based on user options
+    var password = generatePassword(options);
+    // Get the password text area element
+    var passwordText = document.querySelector('#password');
+    // Set the generated password as the value of the text area
+    passwordText.value = password;
+    // Change the button text to indicate that the password is generated
+    generateBtn.innerText = "Password Generated";
+    // Disable the button to prevent further clicks
+    generateBtn.disabled = true;
   }
+}
 
-  // Event listener for the "Generate Password" button
-  var generateBtn = document.querySelector('#generate');
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
 
-  // Write password to the #password input
-  function writePassword() {
-    var options = getPasswordOptions();
-    if (options) {
-      var password = generatePassword(options);
-      var passwordText = document.querySelector('#password');
-      passwordText.value = password;
-    }
-  }
-
-  // Add event listener to generate button
-  generateBtn.addEventListener('click', writePassword);
 });
