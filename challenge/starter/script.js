@@ -151,6 +151,12 @@ function generatePassword(options) {
 
   return password;
 }
+for (let i = 0; i < options.length; i++) {
+  password += getRandom(characters);
+}
+
+return password;
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
