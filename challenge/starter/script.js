@@ -159,8 +159,9 @@ function generatePassword(options) {
 
 // Event listener for the "Generate Password" button
 var generateBtn = document.querySelector('#generate');
+var passwordHeader = document.querySelector('.card-header h2');
 
-// Write password to the #password input
+// Write password to the #password input and update header
 function writePassword() {
   // Get user options for password generation
   var options = getPasswordOptions();
@@ -176,10 +177,12 @@ function writePassword() {
     generateBtn.innerText = "Password Generated";
     // Disable the button to prevent further clicks
     generateBtn.disabled = true;
+    // Change the header text to indicate the new password
+    passwordHeader.innerText = "Your New Password";
   }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
 });
+

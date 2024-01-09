@@ -11,7 +11,9 @@ body,
   margin: 0;
   padding: 0;
 }
-
+h1 {
+  font-family: monospace;
+}
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -132,6 +134,7 @@ button[disabled] {
 
 .card-header h2 {
   text-align: center;
+  font-family: monospace;
 }
 
 @media (max-width: 500px) {
