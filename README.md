@@ -53,6 +53,6 @@ All Credits to Boot Camp TA's and students who assisted me in completing this pr
 
 For any inquiries, feedback.
 
-jblearn2023@gmail.com
-https://github.com/jjbstudent
+- jblearn2023@gmail.com
+- https://github.com/jjbstudent
 
