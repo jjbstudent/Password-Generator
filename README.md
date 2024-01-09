@@ -17,7 +17,7 @@ The Password Generator project is a simple yet effective tool that allows users 
 
 The installation process is designed to be straightforward. Users need to clone the project repository and open the HTML file in a web browser. No additional installations or dependencies are required.
 
-To clone this repository, use the following command:
+To clone this HTTPS repository 
 
 https://github.com/jjbstudent/Password-Generator.git
 
