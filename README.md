@@ -19,7 +19,7 @@ The installation process is designed to be straightforward. Users need to clone 
 
 To clone this repository, use the following command:
 
-[git clone git@github.com:jjbstudent/Password-Generator.git](https://github.com/jjbstudent/Password-Generator.git)
+https://github.com/jjbstudent/Password-Generator.git
 
 ## Contributing
 
