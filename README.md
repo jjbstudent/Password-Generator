@@ -39,7 +39,7 @@ Password Generator contributions got to.
 
 Users can easily generate passwords by specifying their preferred length and character types through a series of prompts. The generated password is then displayed, providing a quick and secure solution for password creation.
 
-Access my password generator website : 
+Access my password generator website : https://jjbstudent.github.io/Password-Generator/
 
 ## License
 
