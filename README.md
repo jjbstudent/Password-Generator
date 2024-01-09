@@ -10,8 +10,8 @@ The Password Generator project is a simple yet effective tool that allows users 
 
 - **User-Friendly Interface:** The project features a clean and intuitive user interface, with prompts and a single generate button.
 
-![Screenshot](/challenge/assets/scrn1.jpg)
-![Screenshot](/challenge/assets/scrn2.jpg)
+![Screenshot](/assets/scrn1.jpg)
+![Screenshot](/assets/scrn2.jpg)
 
 ## Installation
 
